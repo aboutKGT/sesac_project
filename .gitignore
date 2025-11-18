@@ -1,0 +1,7 @@
+# 라이브러리 폴더 (Git 관리 제외)
+detectron2/
+
+# 팀원 폴더 내부의 관리 제외 대상 (data, output, configs)
+*/data/
+*/output/
+*/configs/
