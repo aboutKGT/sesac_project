@@ -108,7 +108,7 @@ def load_random_images(folder_path: str, n_images: int) -> Optional[List[cv2.typ
         # 한글 경로 문제 방지를 위해 imdecode 사용
         # img_array = np.fromfile(image_path, np.uint8)  # 파일을 바이트 배열로 읽기  cv2.imread()는 한글경로 실패가능능
         # im = cv2.imdecode(img_array, cv2.IMREAD_COLOR)  # 바이트 배열을 이미지로 디코딩
-        im = cv2.imread(image_path)  # 이미지 파일 읽기
+        im = cv2.imread(image_path)  # 이미지 파일 읽기 한글경로 읽기 가능능
 
         if im is not None:  # 이미지 로드 성공
             loaded_images.append(im)  # 리스트에 추가
