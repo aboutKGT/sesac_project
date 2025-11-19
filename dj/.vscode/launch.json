@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "preLaunchTask": "checkout-dj-branch",
+            "postDebugTask": "restore-dj-branch"
+        },
+        {
+            "name": "Python: train.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/script/pytorch/train.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "preLaunchTask": "checkout-dj-branch",
+            "postDebugTask": "restore-dj-branch"
+        },
+        {
+            "name": "Python: val.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/script/pytorch/val.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "preLaunchTask": "checkout-dj-branch",
+            "postDebugTask": "restore-dj-branch"
+        }
+    ]
+}
+

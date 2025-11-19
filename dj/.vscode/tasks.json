@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "checkout-dj-branch",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/.. && git checkout dj && echo 'Switched to dj branch'",
+            "options": {
+                "cwd": "${workspaceFolder}/.."
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "default"
+            }
+        },
+        {
+            "label": "restore-dj-branch",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/.. && git checkout dj && echo 'Restored to dj branch'",
+            "options": {
+                "cwd": "${workspaceFolder}/.."
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "default"
+            }
+        }
+    ]
+}
+
