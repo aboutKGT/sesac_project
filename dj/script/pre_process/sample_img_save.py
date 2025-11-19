@@ -63,7 +63,8 @@ def extract_first_files_from_all_folders(zip_path, target_dir, condition_func, p
                 extracted_folders.add(top_folder_name)
                 
                 # 파일명 생성: 접두사 + 폴더명 + "_" + 파일명
-                new_filename = f"{prefix}{top_folder_name}_{os.path.basename(file_path)}"
+                # new_filename = f"{prefix}{top_folder_name}_{os.path.basename(file_path)}"
+                new_filename = f"{os.path.basename(file_path)}"
                 dest_path = os.path.join(target_dir, new_filename)
                 
                 # 파일 추출
