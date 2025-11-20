@@ -27,33 +27,21 @@ def load_video_frames(video_path, resize=None, skip=1):
 
     cap.release()
 
-def frames_to_video(result_frames, save_path, fps=30):
-    # 프레임 크기 정의
-    h, w, _ = result_frames[0].shape
+def inference_video(predictor, frames, output_path, fps=None):
 
-    writer = cv2.VideoWriter(
-        save_path, 
-        cv2.VideoWriter_fourcc(*"mp4v"),
-        fps,
-        (w, h)
-    )
+    # 메모리에 모든 프레임을 쌓지 않고 바로 영상으로 저장
+    frame_id, first_frame = next(frames)
+    h, w, _ = first_frame.shape
+    writer = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
 
-    for frame in result_frames:
-        writer.write(frame)
+    result_img = predictor.run(first_frame)
+
+    for frame_id, frame in frames:
+        result_img = predictor.run(frame)
+        writer.write(result_img)
 
     writer.release()
-    print(f"🎬 영상 저장 완료: {save_path}")
-
-def inference_video(predictor, frames, output_path, fps=30):
-    result_frames = []
-
-    # 1. 프레임 순회하며 추론한 이미지 결과
-    for frame_id, frame in frames:
-        result_img = predictor.run(frame) 
-        result_frames.append(result_img)
-
-    # 2. 영상으로 합치기       #변수 OUTPUT_PATH 전달
-    frames_to_video(result_frames, output_path, fps=fps)
+    print(f"🎬 영상 저장 완료: {output_path}")
     
 
 def main():
@@ -63,7 +51,7 @@ def main():
     print("모델 로드 완료!")
 
 
-    video_path = TEST_IMAGE_PATH  # 불러올 영상 경로 (현재는 )
+    video_path = TEST_IMAGE_PATH  # 불러올 영상 경로 (현재는 jpg지만 실제 영상 정해지면 변경)
     save_path = OUTPUT_PATH + "/inference_result.mp4"
 
 
@@ -71,7 +59,7 @@ def main():
     frames = load_video_frames(video_path)
     #frames에는 제너레이터 객체 반환 (반복문에서 하나씩 꺼내야됨)
 
-    inference_video(predictor, frames, save_path, fps=30)
+    inference_video(predictor, frames, save_path)
 
 if __name__ == "__main__":
     main()

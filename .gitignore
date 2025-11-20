@@ -10,6 +10,7 @@ detectron2/
 yolo_env/
 checkpoint/
 log/
+gt/custom_model/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
