@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/home/elicer/miniconda3/envs/d2/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.condaPath": "/home/elicer/miniconda3/bin/conda"
+}
+
