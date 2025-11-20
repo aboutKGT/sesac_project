@@ -1,17 +1,14 @@
 MODEL_PATH = "/home/elicer/dev/gt/custom_model/20251120_062503/model_final.pth"
-TEST_IMAGE_PATH = "/home/elicer/dev/detectron2/final_data/val/images/08_174514_221206_07.jpg" 
+TEST_VIDEO_PATH = ".mp4" 
 OUTPUT_PATH = "/home/elicer/dev/02_output"
 
 def load_video_frames(video_path, resize=None, skip=1):
-
-    # 1. video_path에 있는 영상 불러오기
+    """영상 경로 -> 제너레이터로 프레임 반환"""
     cap = cv2.VideoCapture(video_path)
-
     if not cap.isOpened(): 
         raise FileNotFoundError(f"비디오를 열 수 없습니다: {video_path}")
     
     frame_id = 0
-
     while True:
         # ret : True or False / frame : 현재프레임
         ret, frame = cap.read()
@@ -27,14 +24,30 @@ def load_video_frames(video_path, resize=None, skip=1):
 
     cap.release()
 
-def inference_video(predictor, frames, output_path, fps=None):
-
+def inference_video(predictor, frames, output_path):
+     """프레임 제너레이터를 바로 추론 + 영상으로 저장"""
     # 메모리에 모든 프레임을 쌓지 않고 바로 영상으로 저장
-    frame_id, first_frame = next(frames)
+    try:
+        frame_id, first_frame = next(frames)
+    except StopIteration:
+        print("[Warning] 영상에 프레임이 없습니다.")
+        return
+
     h, w, _ = first_frame.shape
-    writer = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
+    
+    # FPS를 원본 영상에서 가져오기
+    cap_temp = cv2.VideoCapture(TEST_VIDEO_PATH)
+    fps = cap_temp.get(cv2.CAP_PROP_FPS)
+    cap_temp.release()
+
+    writer = cv2.VideoWriter(output_path,
+     cv2.VideoWriter_fourcc(*"mp4v"),
+      fps, 
+      (w, h)
+      )
 
     result_img = predictor.run(first_frame)
+    writer.write(result_img)
 
     for frame_id, frame in frames:
         result_img = predictor.run(frame)
