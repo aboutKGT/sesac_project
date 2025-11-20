@@ -11,6 +11,7 @@ yolo_env/
 checkpoint/
 log/
 gt/custom_model/
+gt/script/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
