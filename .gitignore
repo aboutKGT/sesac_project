@@ -1,3 +1,4 @@
+
 # 라이브러리 폴더 (Git 관리 제외)
 detectron2/
 */detectron2_repo/
@@ -52,3 +53,27 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+
+# /dev/sesac_project_git/.gitignore 내용
+
+# 모든 개발자 폴더의 훈련 결과물 및 로그를 제외 (가장 중요)
+/dj/output
+/gt/output
+/jh/output
+/ss/output
+
+# 데이터셋 제외 (용량 문제 방지)
+/dj/data
+/gt/data
+/jh/data
+/ss/data
+
+# Python 및 IDE 설정 파일 제외
+__pycache__/
+*.pyc
+.vscode/
+
+# [보완] 개발 중 발생 가능한 로그 및 임시 파일
+*.log
+*~
