@@ -1,4 +1,62 @@
 
+# 라이브러리 폴더 (Git 관리 제외)
+detectron2/
+*/detectron2_repo/
+
+# 팀원 폴더 내부의 관리 제외 대상 (data, output, configs)
+*/data/
+*/output/
+*/configs/
+yolo_env/
+checkpoint/
+log/
+gt/custom_model/
+gt/script/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+#pytorch
+*.pth
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# image
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.ico
+*.webp
+*.mp4
+
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+
 # /dev/sesac_project_git/.gitignore 내용
 
 # 모든 개발자 폴더의 훈련 결과물 및 로그를 제외 (가장 중요)
