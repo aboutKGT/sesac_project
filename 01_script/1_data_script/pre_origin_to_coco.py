@@ -9,16 +9,16 @@ from typing import List, Dict, Any
 # [설정 영역] 경로와 클래스 정의
 
 # 1. 경로 설정
-IMAGE_DIR = '/home/elicer/data/090_AD_Hway_Day/Training/01_raw_data/image_data'  # 원본 이미지 폴더
-LABEL_DIR = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/2D'  # 원본 라벨 폴더
+IMAGE_DIR = '/home/elicer/data/091_AD_Severe_Day/Validation/01_raw_data/image_data'  # 원본 이미지 폴더
+LABEL_DIR = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/2D'  # 원본 라벨 폴더
 
 # 중간 생성 파일 (전체 데이터 JSON)
-FULL_JSON_PATH = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/train_coco_full.json' 
+FULL_JSON_PATH = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/train_coco_full.json' 
 # 최종 생성 파일 (샘플링된 데이터 JSON)
-SAMPLED_JSON_PATH = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/train_coco_stratified.json'
+SAMPLED_JSON_PATH = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/train_coco_stratified.json'
 
 # 2. 샘플링 비율 (전체 데이터 중 몇 %를 사용할지)
-SAMPLE_RATIO = 1.0  # 30%만 사용
+SAMPLE_RATIO = 0.3  # 30%만 사용
 
 # 3. 클래스 매핑 (소문자 통일)
 CONSOLIDATION_MAP = {
