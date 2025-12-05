@@ -8,18 +8,18 @@ from tqdm import tqdm  # 진행률 표시를 위한 라이브러리 (pip install
 # =========================================================
 
 # 1. Target: 앞서 생성한 COCO 포맷 파일 (distance가 없는 상태)
-COCO_JSON_PATH = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/train_coco_full.json'
+COCO_JSON_PATH = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/train_coco_full.json'
 
 # 2. Source: distance 정보가 들어있는 3D 원본 라벨 폴더 (예: 08_174514_221206_01.json 파일들이 있는 곳)
 # 주의: 파일명(filename)이 COCO 데이터의 file_name과 일치해야 매칭 가능
-SOURCE_LABEL_DIR = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/3D' 
+SOURCE_LABEL_DIR = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/3D' 
 
 # 3. 결과 저장 경로
-OUTPUT_JSON_PATH = '/home/elicer/data/090_AD_Hway_Day/Training/02_label_data/train_coco_with_distance.json'
+OUTPUT_JSON_PATH = '/home/elicer/data/091_AD_Severe_Day/Validation/02_label_data/val_coco_with_distance.json'
 
 # 4. IoU 임계값 (0.0 ~ 1.0)
 # 두 박스가 50% 이상 겹쳐야 같은 객체로 간주
-IOU_THRESHOLD = 0.6 
+IOU_THRESHOLD = 0.5
 
 # =========================================================
 # [함수] IoU 계산 및 매칭 로직
